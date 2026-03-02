@@ -70,9 +70,6 @@ class QuoteController extends AbstractController
         return static::ROUTE_NAME_CART;
     }
 
-    /**
-     * @return string
-     */
     protected function getSuccessMessage(): string
     {
         return $this->getFactory()->getGlossaryClient()

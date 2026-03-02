@@ -77,11 +77,6 @@ class ItemAsyncController extends AbstractController
         return $this->redirectResponseInternal(static::ROUTE_NAME_CART_ASYNC_VIEW);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return string
-     */
     protected function getSuccessMessage(string $sku): string
     {
         return $this->getFactory()

@@ -17,37 +17,22 @@ use Symfony\Component\Form\FormInterface;
  */
 class CartItemNoteFormWidget extends AbstractWidget
 {
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     */
     public function __construct(ItemTransfer $itemTransfer, QuoteTransfer $quoteTransfer)
     {
         $this->addParameter('cartNoteForm', $this->getCartNoteForm($itemTransfer)->createView())
             ->addParameter('cart', $quoteTransfer);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'CartItemNoteFormWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@CartNoteWidget/views/cart-item-note-form/cart-item-note-form.twig';
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Symfony\Component\Form\FormInterface
-     */
     protected function getCartNoteForm(ItemTransfer $itemTransfer): FormInterface
     {
         $cartNoteForm = $this->getFactory()

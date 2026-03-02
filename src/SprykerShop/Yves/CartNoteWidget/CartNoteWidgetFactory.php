@@ -18,41 +18,26 @@ use Symfony\Component\Form\FormInterface;
 
 class CartNoteWidgetFactory extends AbstractFactory
 {
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function getCartNoteQuoteForm(): FormInterface
     {
         return $this->getFormFactory()->create(QuoteCartNoteForm::class);
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function getCartNoteQuoteItemForm(): FormInterface
     {
         return $this->getFormFactory()->create(QuoteItemCartNoteForm::class);
     }
 
-    /**
-     * @return \SprykerShop\Yves\CartNoteWidget\Dependency\Client\CartNoteWidgetToCartNoteClientInterface
-     */
     public function getCartNoteClient(): CartNoteWidgetToCartNoteClientInterface
     {
         return $this->getProvidedDependency(CartNoteWidgetDependencyProvider::CLIENT_CART_NOTE);
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormFactoryInterface
-     */
     public function getFormFactory(): FormFactoryInterface
     {
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
     }
 
-    /**
-     * @return \SprykerShop\Yves\CartNoteWidget\Dependency\Client\CartNoteWidgetToGlossaryStorageClientInterface
-     */
     public function getGlossaryClient(): CartNoteWidgetToGlossaryStorageClientInterface
     {
         return $this->getProvidedDependency(CartNoteWidgetDependencyProvider::CLIENT_GLOSSARY);

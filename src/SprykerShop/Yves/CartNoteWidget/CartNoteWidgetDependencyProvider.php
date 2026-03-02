@@ -37,11 +37,6 @@ class CartNoteWidgetDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addCartNoteClient(Container $container): Container
     {
         $container->set(static::CLIENT_CART_NOTE, function (Container $container) {
@@ -51,11 +46,6 @@ class CartNoteWidgetDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addGlossaryClient(Container $container): Container
     {
         $container->set(static::CLIENT_GLOSSARY, function (Container $container) {

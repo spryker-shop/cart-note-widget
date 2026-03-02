@@ -25,11 +25,6 @@ class CartNoteWidgetControllerProvider extends AbstractYvesControllerProvider
      */
     public const ROUTE_CART_NOTE_ITEM = 'cart-note/item';
 
-    /**
-     * @param \Silex\Application $app
-     *
-     * @return void
-     */
     protected function defineControllers(Application $app): void
     {
         $this->addQuoteController()

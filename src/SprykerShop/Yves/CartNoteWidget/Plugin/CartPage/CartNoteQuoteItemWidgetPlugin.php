@@ -20,12 +20,6 @@ use SprykerShop\Yves\CartPage\Dependency\Plugin\CartNoteWidget\CartNoteQuoteItem
  */
 class CartNoteQuoteItemWidgetPlugin extends AbstractWidgetPlugin implements CartNoteQuoteItemWidgetPluginInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function initialize(ItemTransfer $itemTransfer, QuoteTransfer $quoteTransfer): void
     {
         $widget = new CartItemNoteFormWidget($itemTransfer, $quoteTransfer);

@@ -54,11 +54,6 @@ class CartNoteWidgetRouteProviderPlugin extends AbstractRouteProviderPlugin
         return $routeCollection;
     }
 
-    /**
-     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
-     *
-     * @return \Spryker\Yves\Router\Route\RouteCollection
-     */
     protected function addQuoteRoute(RouteCollection $routeCollection): RouteCollection
     {
         $route = $this->buildRoute('/cart-note/quote', 'CartNoteWidget', 'Quote', 'indexAction');
@@ -67,11 +62,6 @@ class CartNoteWidgetRouteProviderPlugin extends AbstractRouteProviderPlugin
         return $routeCollection;
     }
 
-    /**
-     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
-     *
-     * @return \Spryker\Yves\Router\Route\RouteCollection
-     */
     protected function addItemRoute(RouteCollection $routeCollection): RouteCollection
     {
         $route = $this->buildRoute('/cart-note/item', 'CartNoteWidget', 'Item', 'indexAction');

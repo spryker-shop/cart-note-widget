@@ -24,23 +24,11 @@ class CartNoteWidgetToCartNoteClientBridge implements CartNoteWidgetToCartNoteCl
         $this->cartNoteClient = $cartNoteClient;
     }
 
-    /**
-     * @param string $note
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function setNoteToQuoteItem(string $note, string $sku, ?string $groupKey = null): QuoteResponseTransfer
     {
         return $this->cartNoteClient->setNoteToQuoteItem($note, $sku, $groupKey);
     }
 
-    /**
-     * @param string $note
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function setNoteToQuote(string $note): QuoteResponseTransfer
     {
         return $this->cartNoteClient->setNoteToQuote($note);
