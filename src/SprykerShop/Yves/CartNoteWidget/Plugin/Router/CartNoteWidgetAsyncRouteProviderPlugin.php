@@ -18,14 +18,10 @@ class CartNoteWidgetAsyncRouteProviderPlugin extends AbstractRouteProviderPlugin
     public const ROUTE_NAME_CART_NOTE_ITEM_ASYNC_ADD = 'cart-note/item/async/add';
 
     /**
-     * Specification:
+     * {@inheritDoc}
      * - Adds Routes to the RouteCollection.
      *
      * @api
-     *
-     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
-     *
-     * @return \Spryker\Yves\Router\Route\RouteCollection
      */
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {

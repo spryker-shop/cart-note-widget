@@ -16,6 +16,11 @@ use SprykerShop\Yves\CustomerPage\Dependency\Plugin\CartNoteWidget\CartNoteOrder
  */
 class CartNoteOrderNoteWidgetPlugin extends AbstractWidgetPlugin implements CartNoteOrderNoteWidgetPluginInterface
 {
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
     public function initialize(OrderTransfer $orderTransfer): void
     {
         $this->addParameter('order', $orderTransfer);
