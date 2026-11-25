@@ -7,27 +7,22 @@
 
 namespace SprykerShop\Yves\CartNoteWidget\Controller;
 
+use Generated\Shared\Transfer\QuoteResponseTransfer;
 use Spryker\Shared\CartNote\Code\Messages;
-use Spryker\Yves\Kernel\Controller\AbstractController;
 use SprykerShop\Yves\CartNoteWidget\Form\QuoteItemCartNoteForm;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \SprykerShop\Yves\CartNoteWidget\CartNoteWidgetFactory getFactory()
  */
-class ItemController extends AbstractController
+class ItemController extends AbstractCartNoteController
 {
-    /**
-     * @var string
-     */
-    public const REQUEST_HEADER_REFERER = 'referer';
+    public const string REQUEST_HEADER_REFERER = 'referer';
 
     /**
      * @uses \SprykerShop\Yves\CartPage\Plugin\Router\CartPageRouteProviderPlugin::ROUTE_NAME_CART
-     *
-     * @var string
      */
-    protected const ROUTE_NAME_CART = 'cart';
+    protected const string ROUTE_NAME_CART = 'cart';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -48,14 +43,21 @@ class ItemController extends AbstractController
             $quoteResponseTransfer = $this->getFactory()
                 ->getCartNoteClient()
                 ->setNoteToQuoteItem($note, $sku, $groupKey);
-            if ($quoteResponseTransfer->getIsSuccessful()) {
-                $this->addSuccessMessage(
-                    $this->getSuccessMessage($sku),
-                );
-            }
+            $this->handleCartNoteItemResponse($quoteResponseTransfer, $sku);
         }
 
         return $this->redirectResponseExternal($this->getRefererUrl($request));
+    }
+
+    protected function handleCartNoteItemResponse(QuoteResponseTransfer $quoteResponseTransfer, string $sku): void
+    {
+        if (!$quoteResponseTransfer->getIsSuccessful()) {
+            $this->handleQuoteResponseTransferErrors($quoteResponseTransfer);
+
+            return;
+        }
+
+        $this->addSuccessMessage($this->getSuccessMessage($sku));
     }
 
     /**
